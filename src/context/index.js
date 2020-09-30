@@ -44,8 +44,8 @@ const lightState = {
         color: '#87FF65',
       }
     ]
-  }
-  
+}
+
   const darkState = {
     mode: 'dark',
     notes: [
@@ -90,4 +90,34 @@ const lightState = {
         color: '#03cea4',
       }
     ]
-  }
+}
+
+const AppContext = creatContext(lightState)
+// contexts give a provider and consumer. we destructure the provider from the AppContext
+const { Provider } = AppContext
+
+// reducer
+const reducer = (state, action) => {
+    switch(action.type) {
+        
+        default:
+            return state
+    }
+}
+
+// provider
+
+const AppContextProvider = props => {
+
+    const [state, dispatch] = useReducer(reducer, lightState)
+
+    return <Provider value={{state, dispatch}}>{props.children}</Provider>
+}
+
+// helper
+const useAppContext = () => {
+    return useContext(AppContext)
+}
+
+// export 
+export { AppContextProvider, useAppContext }
