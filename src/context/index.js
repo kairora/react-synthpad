@@ -92,7 +92,7 @@ const lightState = {
     ]
 }
 
-const AppContext = creatContext(lightState)
+const AppContext = createContext(lightState)
 // contexts give a provider and consumer. we destructure the provider from the AppContext
 const { Provider } = AppContext
 
